@@ -1,1 +1,1 @@
-# osrs-thieving-calculator
+Thieving skill calculator inspired in oldschool runescape.
