@@ -12,43 +12,53 @@ const thieving = [
     ['TzHaar-Hur', 90, 103.4]
 ];
 
-/* Code to transform every element from thieving [[name, level, exp]]
-into an independent array constructed from those elements. */
+/* Code to transform my thieving array into an object.
 
-/* 
-let npc = [];
-let lvl = [];
-let exp = [];
-for (i = 0; i < thieving.length; i++) {
-    npc.push(thieving[i][0]);
-    lvl.push(thieving[i][1]);
-    exp.push(thieving[i][2]);
-}
-console.log(npc);  
-console.log(lvl);
-console.log(exp);
-*/
-/* Then i get all the console.log data and paste it into an object. */
+var thievingObject = {};
+for (var i = 0; i < thieving.length; i++)
+    thievingObject[i] = {'npc': thieving[i][0], 'lvl': thieving[i][1], 'exp': thieving[i][2]}
+console.log(thievingObject) */
 
-const thievingObject = { npc: ['Man', 'Farmer', 'Fem HAM', 'Mal HAM', 'Al-Kharid warrior', 'Villager', 'Rogue', 'Cave goblin', 'Master Farmer', 'Guard', 'Fremmenik Citizen', 'Bearded Pollnivnian Bandit', 'Desert Bandit', 'Knight of Ardougne', 'Pollnivian Bandit', 'Yanille Watchman', 'Menaphite Thug', 'Paladin', 'Gnome', 'Hero', 'Vyre', 'Elf', 'TzHaar-Hur'], 
-lvl: [1, 10, 15, 20, 25, 30, 32, 36, 38, 40, 45, 45, 53, 55, 55, 65, 65, 70, 75, 80, 82, 85, 90], 
-exp: [8, 14.5, 18.5, 22.2, 26, 8, 36.5, 40, 43, 46.8 , 65, 65, 79.4, 84.3, 84.3, 137.5, 137.5, 151.8, 198.3, 273.3, 306.9, 353.3, 103.4], }
-
-
-
+const thievingObject = {
+    '0': { npc: 'Man', lvl: 1, exp: 8 },
+    '1': { npc: 'Farmer', lvl: 10, exp: 14.5 },
+    '2': { npc: 'Fem HAM', lvl: 15, exp: 18.5 },
+    '3': { npc: 'Mal HAM', lvl: 20, exp: 22.2 },
+    '4': { npc: 'Al-Kharid warrior', lvl: 25, exp: 26 },
+    '5': { npc: 'Villager', lvl: 30, exp: 8 },
+    '6': { npc: 'Rogue', lvl: 32, exp: 36.5 },
+    '7': { npc: 'Cave goblin', lvl: 36, exp: 40 },
+    '8': { npc: 'Master Farmer', lvl: 38, exp: 43 },
+    '9': { npc: 'Guard', lvl: 40, exp: 46.8 },
+    '10': { npc: 'Fremmenik Citizen', lvl: 45, exp: 65 },
+    '11': { npc: 'Bearded Pollnivnian Bandit', lvl: 45, exp: 65 },
+    '12': { npc: 'Desert Bandit', lvl: 53, exp: 79.4 },
+    '13': { npc: 'Knight of Ardougne', lvl: 55, exp: 84.3 },
+    '14': { npc: 'Pollnivian Bandit', lvl: 55, exp: 84.3 },
+    '15': { npc: 'Yanille Watchman', lvl: 65, exp: 137.5 },
+    '16': { npc: 'Menaphite Thug', lvl: 65, exp: 137.5 },
+    '17': { npc: 'Paladin', lvl: 70, exp: 151.8 },
+    '18': { npc: 'Gnome', lvl: 75, exp: 198.3 },
+    '19': { npc: 'Hero', lvl: 80, exp: 273.3 },
+    '20': { npc: 'Vyre', lvl: 82, exp: 306.9 },
+    '21': { npc: 'Elf', lvl: 85, exp: 353.3 },
+    '22': { npc: 'TzHaar-Hur', lvl: 90, exp: 103.4 }
+  }
 
 /* Now the code gets the user level input and runs a for loop to show the user 
 what npcs he can pickpocket, the level required for each npc and the exp. */
 
-let lvlInput = '80'
+let lvlInput = '80';
+let objectLength = Object.keys(thievingObject).length;
 
-for(i = 0; i < thievingObject.npc.length; i++) {
-    if (lvlInput >= thievingObject.lvl[i]) {
+console.log(objectLength)
+for(i = 0; i < thievingObject.length; i++) {
+    if (lvlInput >= thievingObject[i].lvl[i]) {
 console.log('npc: ' + thievingObject.npc[i] + ' lvl: ' + 
 thievingObject.lvl[i] + ' exp per action: ' + thievingObject.exp[i]);
 }}
 
-let npcInput = 'man'
+/* let npcInput = 'man'
 
 switch (npcInput) {
     case 'man': 
@@ -58,7 +68,7 @@ switch (npcInput) {
         break;
     
     default:console.log('select a valid npc')
-}
+} */
 
 
 
@@ -67,7 +77,6 @@ switch (npcInput) {
     actions = expToFloat / expPerAction;
     time = expToFloat / expPerHour;
     days = time / hoursPerDay;
-
     console.log("Total exp: " + Math.ceil(expToFloat));
     console.log("Total actions " + Math.ceil(actions));
     console.log("Total time:" + Math.ceil(time));
